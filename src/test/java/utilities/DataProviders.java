@@ -5,6 +5,7 @@ import org.testng.annotations.DataProvider;
 import java.io.IOException;
 
 public class DataProviders {
+
     @DataProvider(name = "Data")
     public Object[][] getAllData() throws IOException {
         String path = System.getProperty("user.dir")+"//testData//Api_test_data.xlsx";
@@ -21,6 +22,7 @@ public class DataProviders {
         }
         return apiData;
     }
+
     @DataProvider(name = "Ids")
     public Object[][] getProductId() throws IOException{
         String path = System.getProperty("user.dir")+"//testData//Api_test_data.xlsx";
