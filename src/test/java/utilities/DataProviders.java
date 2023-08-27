@@ -5,6 +5,7 @@ import org.testng.annotations.DataProvider;
 import java.io.IOException;
 
 public class DataProviders {
+
     @DataProvider(name = "Data")
     public Object[][] getAllData() throws IOException {
         String path = System.getProperty("user.dir")+"//testData//Api_test_data.xlsx";
@@ -15,12 +16,13 @@ public class DataProviders {
 
         String[][] apiData = new String[rowNum][colCount];
         for (int i = 1; i <= rowNum; i++) {
-            for (int j = 0; j <= colCount; j++) {
+            for (int j = 0; j < colCount; j++) {
                 apiData[i-1][j] = xl.getCellData("Sheet1", i, j);
             }
         }
         return apiData;
     }
+
     @DataProvider(name = "Ids")
     public Object[][] getProductId() throws IOException{
         String path = System.getProperty("user.dir")+"//testData//Api_test_data.xlsx";
@@ -28,9 +30,9 @@ public class DataProviders {
 
         int rowNum = xl.getRowCount("Sheet1");
 
-        String apiData[][] = new String[rowNum][2];
+        String apiData[][] = new String[rowNum][1];
         for (int i = 1; i <=rowNum ; i++) {
-            apiData[i-1][2]= xl.getCellData("Sheet1", i, 2);
+            apiData[i-1][0]= xl.getCellData("Sheet1", i, 0);
         }
         return apiData;
     }
